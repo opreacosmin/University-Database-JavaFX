@@ -3,20 +3,28 @@ import map.NullValueException;
 import map.domain.Person;
 
 import java.util.List;
-
-public class PersonRepo extends InMemoryRepo<Person> {
+/**
+ * Repository Class that manages all CRUD operations for a Person Entity
+ *
+ * @param <T> generic PersonRepository
+ */
+public class PersonRepo<T extends Person> extends InMemoryRepo<T> {
 
     public PersonRepo() {
         super();
     }
-
     @Override
-    public List<Person> getAll(){
-        return repoList;
-
+    public T findOne(Long id) throws NullValueException {
+        if (id == null)
+            throw new NullValueException("Invalid ID");
+        for (Person person : repoList) {
+            if (person.getID() == id)
+                return (T) person;
+        }
+        return null;
     }
     @Override
-    public Person create(Person obj) throws NullValueException {
+    public T create(T obj) throws NullValueException {
         if (obj == null)
             throw new NullValueException("Invalid person object");
         for (Person person : repoList)
@@ -27,7 +35,7 @@ public class PersonRepo extends InMemoryRepo<Person> {
     }
 
     @Override
-    public Person update(Person obj) throws  NullValueException {
+    public T update(T obj) throws  NullValueException {
         if (obj == null)
             throw new NullValueException("Invalid person object");
         for (Person person : repoList)
@@ -40,13 +48,13 @@ public class PersonRepo extends InMemoryRepo<Person> {
     }
 
     @Override
-    public Person delete(Long id) throws NullValueException {
+    public T delete(Long id) throws NullValueException {
         if (id == null)
             throw new NullValueException("Invalid person object");
         for (Person person : repoList)
             if (person.getID()== id) {
                 repoList.remove(person);
-                return person;
+                return (T) person;
             }
         return null;
     }

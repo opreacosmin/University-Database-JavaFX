@@ -7,15 +7,15 @@ public class CourseRepo extends InMemoryRepo<Course> {
     public CourseRepo() {
         super();
     }
-
-    public Object findCourse(Long id) throws NullValueException {
+    @Override
+    public Course findOne(Long id) throws NullValueException {
         if (id == null)
             throw new NullValueException("Invalid ID");
         for (Course course : repoList) {
             if (course.getCourseId() == id)
                 return course;
         }
-        return new NullValueException("No matching course");
+        return null;
     }
 
 
@@ -43,6 +43,7 @@ public class CourseRepo extends InMemoryRepo<Course> {
             }
         return null;
     }
+
 
     @Override
     public Course create(Course obj) throws NullValueException {
