@@ -4,7 +4,7 @@ import map.domain.Person;
 
 import java.util.List;
 /**
- * Repository Class that manages all CRUD operations for a Person Entity
+ * Repository Class that manages all CRUD operations for a Person object
  *
  * @param <T> generic PersonRepository
  */

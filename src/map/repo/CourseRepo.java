@@ -3,6 +3,9 @@ package map.repo;
 import map.domain.Course;
 import map.NullValueException;
 
+/**
+ * Repository Class that manages all CRUD operations for a Course object
+ */
 public class CourseRepo extends InMemoryRepo<Course> {
     public CourseRepo() {
         super();
