@@ -7,18 +7,18 @@ import java.util.List;
 import java.util.Objects;
 
 public class Teacher extends Person {
-    private List<Course> Courses;
+    private List<Long> Courses;
 
-    public Teacher(long id,String firstName, String lastName, List<Course> courses) {
+    public Teacher(long id,String firstName, String lastName, List<Long> courses) {
         super(id,firstName, lastName);
         Courses = courses;
     }
 
-    public List<Course> getCourses() {
+    public List<Long> getCourses() {
         return Courses;
     }
 
-    public void setCourses(List<Course> courses) {
+    public void setCourses(List<Long> courses) {
         Courses = courses;
     }
 

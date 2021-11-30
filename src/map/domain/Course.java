@@ -7,24 +7,25 @@ public class Course {
     long CourseId;
     private Person teacher;
     private String CourseName;
-    private String LehrerName;
+    private long LehrerID;
     private int MaxNrofStudents;
     private List<Student> StudentsList;
     private int NrCredits;
 
-    public Course(long id,String courseName,String lehrerName, Person teacher,
+    public Course(long id,String courseName,long lehrerid, Person teacher,
                   int maxNrofStudents,int nrCredits,
                   List<Student>studentsList) {
 
         this.CourseId=id;
         this.CourseName = courseName;
-        this.LehrerName=lehrerName;
+        this.LehrerID =lehrerid;
         this.teacher=teacher;
         this.MaxNrofStudents=maxNrofStudents;
         this.StudentsList=studentsList;
         this.NrCredits=nrCredits;
 
     }
+
 
     public long getCourseId() {
         return CourseId;
@@ -42,12 +43,12 @@ public class Course {
         CourseName = courseName;
     }
 
-    public String getLehrerName() {
-        return LehrerName;
+    public long getLehrerID() {
+        return LehrerID;
     }
 
-    public void setLehrerName(String lehrerName) {
-        LehrerName = lehrerName;
+    public void setLehrerID(long lehrerID) {
+        LehrerID = lehrerID;
     }
 
     public int getMaxNrofStudents() {

@@ -1,8 +1,9 @@
 package map.repo;
-import map.NullValueException;
+import map.exceptions.NullValueException;
 import map.domain.Person;
 
-import java.util.List;
+import java.io.IOException;
+
 /**
  * Repository Class that manages all CRUD operations for a Person object
  *
@@ -24,7 +25,7 @@ public class PersonRepo<T extends Person> extends InMemoryRepo<T> {
         return null;
     }
     @Override
-    public T create(T obj) throws NullValueException {
+    public T create(T obj) throws NullValueException, IOException {
         if (obj == null)
             throw new NullValueException("Invalid person object");
         for (Person person : repoList)
@@ -35,7 +36,7 @@ public class PersonRepo<T extends Person> extends InMemoryRepo<T> {
     }
 
     @Override
-    public T update(T obj) throws  NullValueException {
+    public T update(T obj) throws  NullValueException, IOException {
         if (obj == null)
             throw new NullValueException("Invalid person object");
         for (Person person : repoList)
@@ -48,7 +49,7 @@ public class PersonRepo<T extends Person> extends InMemoryRepo<T> {
     }
 
     @Override
-    public T delete(Long id) throws NullValueException {
+    public T delete(Long id) throws NullValueException, IOException {
         if (id == null)
             throw new NullValueException("Invalid person object");
         for (Person person : repoList)

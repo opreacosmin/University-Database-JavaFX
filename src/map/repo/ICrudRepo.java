@@ -1,6 +1,6 @@
 package map.repo;
 
-import map.NullValueException;
+import map.exceptions.NullValueException;
 
 import java.io.IOException;
 import java.util.List;

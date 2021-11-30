@@ -1,7 +1,9 @@
 package map.repo;
 
 import map.domain.Course;
-import map.NullValueException;
+import map.exceptions.NullValueException;
+
+import java.io.IOException;
 
 /**
  * Repository Class that manages all CRUD operations for a Course object
@@ -23,7 +25,7 @@ public class CourseRepo extends InMemoryRepo<Course> {
 
 
     @Override
-    public Course update(Course obj) throws NullValueException {
+    public Course update(Course obj) throws NullValueException, IOException {
         if (obj == null)
             throw new NullValueException("Invalid course object");
         for (Course course : repoList)
@@ -36,7 +38,7 @@ public class CourseRepo extends InMemoryRepo<Course> {
     }
 
     @Override
-    public Course delete(Long id) throws NullValueException {
+    public Course delete(Long id) throws NullValueException, IOException {
         if (id == null)
             throw new NullValueException("Invalid course object");
         for (Course course : repoList)
@@ -49,7 +51,7 @@ public class CourseRepo extends InMemoryRepo<Course> {
 
 
     @Override
-    public Course create(Course obj) throws NullValueException {
+    public Course create(Course obj) throws NullValueException, IOException {
         if (obj == null)
             throw new NullValueException("Invalid course object");
         for (Course course : repoList)
